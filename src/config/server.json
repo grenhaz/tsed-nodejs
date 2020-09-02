@@ -1,0 +1,19 @@
+{
+	"viewsDir": "${rootDir}/views",
+	"mount": {
+		"/rest": "${rootDir}/controllers/RestController.ts",
+		"/": "${rootDir}/controllers/WebController.ts"
+	},
+	"typeorm": [
+		{
+			"name": "default",
+			"type": "sqlite",
+			"database": "games.sqlite",
+			"entities": [
+				"${rootDir}/entities/*{.ts,.js}"
+			],
+			"synchronize": true,
+			"logging": false
+		}
+	]
+}

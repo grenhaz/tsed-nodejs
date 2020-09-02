@@ -1,0 +1,21 @@
+{
+    "extends": "tslint:recommended",
+	"linterOptions": {
+		"exclude": [
+			"**/*.spec.*"
+		]
+	},
+    "rulesDirectory": [],
+    "rules": {
+        "max-line-length": {
+            "options": [120]
+        },
+		"max-classes-per-file": false,
+		"no-trailing-whitespace": false
+    },
+    "jsRules": {
+        "max-line-length": {
+            "options": [120]
+        }
+    }
+}
