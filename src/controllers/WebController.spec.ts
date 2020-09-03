@@ -3,7 +3,6 @@ import {getRepository} from "typeorm";
 import * as SuperTest from "supertest";
 import {Server} from "../Server";
 import {Game} from "../entities/Game";
-import * as ejs from "ejs";
 
 describe("Web controller", () => {
 	let request: SuperTest.SuperTest<SuperTest.Test>;
@@ -38,7 +37,7 @@ describe("Web controller", () => {
 	afterAll(PlatformTest.reset);
 	
 	it("GET /", async () => {
-		const response = await request.get("/").expect(200);
-		const responseNotFound = await request.get("/notfound").expect(404);
+		await request.get("/").expect(200);
+		await request.get("/notfound").expect(404);
 	});
 });

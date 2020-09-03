@@ -1,4 +1,4 @@
-import {Middleware, Req, Res, Next, Err, $log} from "@tsed/common";
+import {Middleware, Req, Res, Err} from "@tsed/common";
 import {Exception} from "@tsed/exceptions";
 
 @Middleware()

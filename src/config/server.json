@@ -4,6 +4,11 @@
 		"/rest": "${rootDir}/controllers/RestController.ts",
 		"/": "${rootDir}/controllers/WebController.ts"
 	},
+	"swagger": [
+		{
+			"path": "/api-docs"
+		}
+	],
 	"typeorm": [
 		{
 			"name": "default",

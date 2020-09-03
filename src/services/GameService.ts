@@ -1,7 +1,7 @@
 import {Service, Inject} from "@tsed/common";
 import {NotFound} from "@tsed/exceptions";
 import {GameRepository} from "../repositories/GameRepository";
-import {Game, GameCreate} from "../entities/Game";
+import {Game} from "../entities/Game";
 
 @Service()
 export class GameService
@@ -47,6 +47,6 @@ export class GameService
 			throw new NotFound("Game not found");
 		}
 
-		this.gameRepository.delete(gameSearch);
+		await this.gameRepository.delete(gameSearch);
 	}
 }

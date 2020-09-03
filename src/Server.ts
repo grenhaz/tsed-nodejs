@@ -5,10 +5,13 @@ import * as cookieParser from "cookie-parser";
 import * as methodOverride from "method-override";
 import {ejs} from "consolidate";
 import "@tsed/typeorm";
+import "@tsed/platform-express";
 import {GlobalErrorHandlerMiddleware} from "./middlewares/GlobalErrorHandlerMiddleware";
 import {NotFoundMiddleware} from "./middlewares/NotFoundMiddleware";
 
+ /* tslint:disable */
 const config = require("./config/server");
+ /* tslint:enable */
 config.rootDir = __dirname; 
 
 @Configuration(config)

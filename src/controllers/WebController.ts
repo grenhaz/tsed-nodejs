@@ -1,7 +1,8 @@
-import {Controller, Get, Render, Inject} from "@tsed/common";
+import {Controller, Get, View, Inject} from "@tsed/common";
 import {GameService} from "../services/GameService";
-import {Game} from "../entities/Game";
+import {Hidden} from "@tsed/swagger";
 
+@Hidden()
 @Controller("/")
 export class WebController
 {
@@ -9,7 +10,7 @@ export class WebController
 	private gameService: GameService;
 	
 	@Get()
-	@Render("index.ejs")
+	@View("index.ejs")
 	async index(): Promise<any>
 	{
 		return {

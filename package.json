@@ -7,7 +7,7 @@
     "clean": "exit 0",
     "build": "yarn tsc",
     "postbuild": "copyfiles -f src/views/*.ejs ./dist/views",
-    "test": "yarn clean && jest",
+    "test": "yarn clean && yarn jest && yarn test:lint",
     "test:lint": "tslint --project tsconfig.json",
     "test:lint:fix": "tslint --project tsconfig.json --fix",
     "tsc": "tsc --project tsconfig.json",
@@ -16,7 +16,7 @@
     "start:prod": "cross-env NODE_ENV=production node dist/index.js",
     "deploy": "exit 0"
   },
-  "author": "",
+  "author": "grenhaz",
   "license": "MIT",
   "dependencies": {
     "@tsed/common": "^5.60.2",

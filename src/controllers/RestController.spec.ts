@@ -33,25 +33,27 @@ describe("Rest controller", () => {
 	afterAll(PlatformTest.reset);
 	
 	it("GET /rest/games", async () => {
-		const response = await request.get("/rest/games").expect(200);
+		await request.get("/rest/games").expect(200);
 	});
 	
 	it("GET /rest/games/:id", async () => {
 		const response = await request.get("/rest/games/" + game.id).expect(200);
-		const responseNotFound = await request.get("/rest/games/" + game.id + 1).expect(404);
+		expect(response.body.id).toBe(game.id);
+		await request.get("/rest/games/" + game.id + 1).expect(404);
 	});
 	
 	it("POST /rest/games", async () => {
-		const response = await request.post("/rest/games").send({name: "Test", description: "Test"}).expect(200);
+		await request.post("/rest/games").send({name: "Test", description: "Test"}).expect(200);
 	});
 
 	it("PUT /rest/games/:id", async () => {
 		const response = await request.put("/rest/games/" + game.id).send({name: "Test", description: "Test"}).expect(200);
-		const responseNotFound = await request.put("/rest/games/" + game.id + 1).send({name: "Test", description: "Test"}).expect(404);
+		expect(response.body.id).toBe(game.id);
+		await request.put("/rest/games/" + game.id + 1).send({name: "Test", description: "Test"}).expect(404);
 	});
 
 	it("DELETE /rest/games/:id", async () => {
-		const response = await request.delete("/rest/games/" + game.id).expect(200);
-		const responseNotFound = await request.delete("/rest/games/" + game.id + 1).expect(404);
+		await request.delete("/rest/games/" + game.id).expect(200);
+		await request.delete("/rest/games/" + game.id + 1).expect(404);
 	});
 });
