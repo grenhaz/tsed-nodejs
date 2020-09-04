@@ -1,4 +1,4 @@
-import {Configuration, Constant, Inject, ServerLoader, PlatformApplication} from "@tsed/common";
+import {Configuration, Inject, PlatformApplication} from "@tsed/common";
 import * as bodyParser from "body-parser";
 import * as compress from "compression";
 import * as cookieParser from "cookie-parser";
@@ -9,13 +9,10 @@ import "@tsed/platform-express";
 import {GlobalErrorHandlerMiddleware} from "./middlewares/GlobalErrorHandlerMiddleware";
 import {NotFoundMiddleware} from "./middlewares/NotFoundMiddleware";
 
- /* tslint:disable */
-const config = require("./config/server");
- /* tslint:enable */
-config.rootDir = __dirname; 
-
-@Configuration(config)
-export class Server extends ServerLoader
+@Configuration({
+	rootDir: __dirname
+})
+export class Server
 {
 	@Inject()
 	app: PlatformApplication;

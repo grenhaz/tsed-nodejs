@@ -1,8 +1,11 @@
-import {Controller, Get, Post, Put, Delete, Inject, PathParams, BodyParams, Required, Returns, ReturnsArray} from "@tsed/common";
+import {
+	Controller, Get, Post, Put, Delete, Inject, PathParams,
+	BodyParams, Required, Returns, ReturnsArray, Description
+} from "@tsed/common";
 import {NotFound} from "@tsed/exceptions";
 import {GameService} from "../services/GameService";
 import {Game, GameCreate} from "../entities/Game";
-import {Name, Summary, Description} from "@tsed/swagger";
+import {Name, Summary} from "@tsed/swagger";
 
 @Name("games")
 @Controller("/games")

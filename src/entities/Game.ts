@@ -1,6 +1,5 @@
-import {Required, Property} from "@tsed/common";
+import {Required, Property, Description} from "@tsed/common";
 import {Column, Entity, PrimaryGeneratedColumn, BaseEntity} from "typeorm";
-import {Description} from "@tsed/swagger";
 
 // TODO: Restrictions
 export class GameCreate
@@ -10,7 +9,7 @@ export class GameCreate
 	name: string;
 	
 	@Description("Description")
-	@Property()
+	@Required()
 	description: string;
 }
 
